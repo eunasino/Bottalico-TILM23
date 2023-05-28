@@ -10,11 +10,11 @@ My main work in on audio implementation: i chose to use an open-source game writ
 Cube is an 2D low-poly retro-style video-game with a low graphic resolution whose source code is available online. The definitions "low-poly" and "retro-style" are common used to describe the style of the graphic, witch is based on different scenes realized with "low-poly" objects, which are graphic components formed by a few geometric figures, which gives them an "angular" appearance. The "retro-style" is a type of graphic style recalls the graphics of the video games of the 80s and 90s, when the pixels were more visible and the resolution of the displays was much lower than the current one.
 I chose to work on the sound design for Cube because the game is very simple, which allowed me to do a job faithful to my compositional intentions. In addition, this game was written for educational purposes: therefore, in addition to making the audio implementation intuitive, the source code is compatible with the most common audio implementation engines for video games. These softwares are called "middleware", and there are several:
 
-\begin{itemsize}
-	\item Wwise: the middleware i chose to use because is the most common and popular in the game-audio industry
+\begin{compactitem}
+	\item Wwise: the middleware i chose to use because is the most common and popular in the game-audio industry. It's developed by Audiokinetic
 	\item Fabric: An audio middleware developed by Tazman-Audio
 	\item Elias: An audio middleware that uses A.I.
-\end{itemsize}
+\end{compactitem}
 
 
 
@@ -30,12 +30,39 @@ I chose to work on the sound design for Cube because the game is very simple, wh
 \end{flushright}
 
 Middlewares are softwares that sits between the game engine and the audio engine, providing a set of tools and features to manage audio content and processing. Middleware typically provides a layer of abstraction between the game engine and the audio engine.
-Middleware can perform a variety of tasks, such as audio playback, dynamic mixing, audio processing, sound effects, and music management. It can also handle the integration of external audio tools and libraries, such as plug-ins. For example, Wwise can communicate with Steinberg Nuendo. In Wwise can be also loaded the plug-ins produced by Izotope for audio processing can be integrated
+Middleware can perform a variety of tasks, such as audio playback, dynamic mixing, audio processing, sound effects, and music management. It can also handle the integration of external audio tools and libraries, such as plug-ins. For example, Wwise can communicate with Steinberg Nuendo. In Wwise can be also loaded the plug-ins produced by Izotope for audio processing
 When a game is being developed, the middleware receives audio data from the game engine, processes it according to the developer's settings, and sends the soundbanks to the audio engine for playback.
 A Soundbank is a collection of audio files, that are packaged together into a single file for efficient loading and playback during the game.
-Sound banks typically contain metadata that describes how the audio files should be played back in the game, such as volume, panning, and spatial positioning information. Sound banks are usually created using middleware tools and are loaded by the game engine during runtime. By using sound banks, is possible to enabling a more immersive and dynamic audio experience in the game.
+Soundbanks typically contain metadata that describes how the audio files should be played back in the game, such as volume, panning, and spatial positioning information. Them are usually created using middleware tools and are loaded by the game engine during runtime. By using soundbanks, is possible to enabling a more immersive and dynamic audio experience in the game.
+But why should i use a middleware? Without it, it will be more expensive in terms of time and energies, and the final result will not be the same as it would be with using the tools of a middleware, because the it's a computing enviroment developed to allow the sound designer to set the sound in a certain way, starting from the EQ up to the spatialization. You can do a lot of operations in a smart way that would otherwise require a lot of lines of code
 
-% devo aggiungere testo su cos'è e come funziona Wwise(soundbanks, eventi etc)
+\section{Wwise}
+For my implementation i chose to use Wwise. But how does it work?
+	
+\begin{compactitem}
+	\item Integration: Game developers integrate the Wwise software development kit (SDK) into their game engine or application at the beginning of the project. Wwise usually comunicate with Unity and Unreal Engine. This allows the game engine to communicate with Wwise and utilize its audio features.
+		
+	\item Audio Asset Creation: Once the project has been created, the sound designers and the composers work on their music and sound with their own workflow on their favourite DAW (Digital audio workstation) and then load sounds into the Wwise hierarchy
+		
+	\item Project Setup: In Wwise, developers organize the imported audio assets into a project hierarchy.
+		
+	\item Sound Design and Mixing: Wwise provides a range of tools and features for sound design and mixing. Sound designers can define interactive behaviors and events, set up dynamic music systems, create spatial audio effects, and more.
+		
+	\item Integration with Game Events: Game events trigger specific audio actions within Wwise based on in-game events or conditions. For example, playing a gunshot sound effect when a player fires a weapon or triggering different music tracks based on the player's location or actions.
+		
+	\item Real-time Audio Processing: During gameplay, the game engine sends audio data requests to Wwise. Wwise processes these requests and provides the appropriate audio assets and information to the game engine, which then plays the audio in sync with the game's events and actions.
+		
+	\item Performance Optimization: Wwise offers various optimization features to ensure efficient and optimized audio processing. This includes streaming audio data, managing memory usage, and controlling resource usage based on gameplay priorities.
+\end{compactitem}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{wwise.jpg}
+		\caption{Logo di Wwise}
+	\end{center}
+\end{figure}
+
+To link a sound to a trigger, you need to create an event and put the sounds to play into it. The main section to work on to organize your work is the hierarchy. Here it is not only possible to order the types of events according to their purpose, but they can be grouped using functions that control certain playback parameters. 
 
 \section{Random controllers}
 Some of these events are grouped in differents containers. The containers are variations of the calling action of the differents events witch can trigger the sounds of the events in so many different ways, one of these is called Random Container: a set of audio events that are recalled randomly at each trigger. used for example for footsteps or jump sounds
@@ -116,20 +143,20 @@ To write a document according to the \arsclassica{} style, you have to follow so
 
 \section{Examples}
 
-\begin{figure}
-\centering
-\subfloat[Asia personas duo]
-{\includegraphics[width=.45\columnwidth]{Lorem}} \quad
-\subfloat[Pan ma signo]
-{\label{fig:example-b}%
-\includegraphics[width=.45\columnwidth]{Ipsum}} \\
-\subfloat[Methodicamente o uno]
-{\includegraphics[width=.45\columnwidth]{Dolor}} \quad
-\subfloat[Titulo debitas]
-{\includegraphics[width=.45\columnwidth]{Sit}}
-\caption[Tu duo titulo debitas latente]{Tu duo titulo debitas latente}
-\label{fig:example}
-\end{figure}
+%\begin{figure}
+%\centering
+%\subfloat[Asia personas duo]
+%{\includegraphics[width=.45\columnwidth]{Lorem}} \quad
+%\subfloat[Pan ma signo]
+%{\label{fig:example-b}%
+%\includegraphics[width=.45\columnwidth]{Ipsum}} \\
+%\subfloat[Methodicamente o uno]
+%{\includegraphics[width=.45\columnwidth]{Dolor}} \quad
+%\subfloat[Titulo debitas]
+%{\includegraphics[width=.45\columnwidth]{Sit}}
+%\caption[Tu duo titulo debitas latente]{Tu duo titulo debitas latente}
+%\label{fig:example}
+%\end{figure}
 
 Please note that the content of this section is just some dummy text. It isn't a real language.
 
