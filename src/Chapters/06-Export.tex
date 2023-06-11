@@ -2,40 +2,15 @@
 % !TEX root = ../tesi.tex
 
 %************************************************
-\chapter{Sound design workflow}
-\label{chp:intro}
+\chapter{Export}
+\label{chp:fundamentals}
 %************************************************
 
-Although is complex predicting the actions of a video game, is possible to control the player's emotions as we want, all this is made possible only by music: the primordial language that regulates the emotional genesis of each person.
-There are, obviously, several parameters for making an overall evaluation of the audio implementation for a video game, which concern both the form and the accuracy of the sounds:
 
-\section{Polishing}
+	
 
-A player's actions move a video game in one direction rather than another. Is essential to provide feedback to the player based on the importance of the action performed. Music and sounds are essential to guide the player to make choices within the video game. Polishing is an integral part of the ability to capture and immerse the player in the virtual dimension of the game. The dynamics of sound plays a fundamental role in this: a good sound designer must be able, through gain staging, to capture the player's attention on the actions performed
-I had an alternative approach in parameter of polishing: i didn't do a great work of gain staging, but on the character of the sounds: the more a musical gesture is detached from the traditional idea of ​​sound design, the greater the player's involvement will be. It's a game of expectations: therefore I worked more by abstraction than by causality when I needed to bring the player's attention through an action
-
-\section{Mix}
-The balance of frequencies in the sound design image is another important aspect. Its main goals are 2:
-
-\begin{itemize}
-	\item To balance the timbre of the overall audio
-	\item To prepare the player's ear for twists and turns
-\end{itemize}
-
-Mixing sounds with the intention of giving roles to each of them in the frequency spectrum best distributes sound energy.
-As already mentioned, the durations of the musical gestures are deliberately prolonged and dispersive compared to a traditional approach. This factor certainly doesn't respect the idea of ​​giving a "role" to each sound. However, I still equalized the material in order to maintain at least the "timbral" role of each sound.
-
-\section{Levels of action}
-For a sound designer, is useful find order: spectrally and dynamically distinguish the sounds belonging to the different levels of action: background, actions and events.
-
-\paragraph{Background sound} are identifed in the soundscape. For example, if the main scene is a forest, the background sounds will be the birds, the wind or the leaves. Despite i had not made a great distintion in the gesture of the implementation, i have respected a simple hierarchy structure, giving the role of "background" sounds to the music carpet: an electroacoustic simple immersive flow of many types of timbres.
-\paragraph{Actions sound} are related to the direction of the main character: footsteps, pickup object etc. In my own implementation, these are the closest sounds to those of a traditional sound design. Not so much for the timbre of the sounds as for their duration, because, since there are short and continuous actions, I couldn't have associated complex musical gestures with them: I need simple and short sounds that are not repetitive, even though they repeat themselves continuously. So I opted for classic electroacoustic glitch sounds, applying random modulations on different parameters (such as volume, pitch, LowPass and HighPass filter etc) and inserting them in a random container. in this way they will always sound different, even though the sounds used for these gestures, such as footsteps for example, are actually only 3
-\paragraph{Events sounds} are the most important for the involving of the player in the game. For these reason, in my implementation, these sound are the loudest. In the most chase, they are short and loud impulses.
-
-\section{differences between the implementation of sound for game and movies}
-The main difference between implementing audio for games and for movies is the linearity: a movie has it's own timeline in which events are located. A film sound designer or composer knows the order of the events and when each one begins and end, so he have a timeline to follow for adding sounds, gestures and music in specific order. A game sound designer must be able to make short and functional gestures, trying to predict which sounds will overlap. Every sound and every music theme must be able to fit with another one, because after a battle scene for example, anything could happen, distorting the mood of the context, precisely because of the non-linearity of the events.
-
-\begin{comment}\begin{code}
+\begin{comment}
+\begin{code}
 \documentclass[\meta{\dots\unkern}]{scrreprt} % or scrbook or scrartcl
 
 \usepackage[\meta{\dots\unkern}]{classicthesis}
@@ -102,22 +77,23 @@ To write a document according to the \arsclassica{} style, you have to follow so
 
 
 
-%\section{Examples}
-%intendo sostituire queste immagini con qualcuna inerente al mio progetto
-\begin{figure}
-\centering
-\subfloat[Asia personas duo]
-{\includegraphics[width=.45\columnwidth]{Lorem}} \quad
-\subfloat[Pan ma signo]
-{\label{fig:example-b}%
-\includegraphics[width=.45\columnwidth]{Ipsum}} \\
-\subfloat[Methodicamente o uno]
-{\includegraphics[width=.45\columnwidth]{Dolor}} \quad
-\subfloat[Titulo debitas]
-{\includegraphics[width=.45\columnwidth]{Sit}}
-\caption[Tu duo titulo debitas latente]{Tu duo titulo debitas latente}
-\label{fig:example}
-\end{figure}
+\section{Examples}
+
+%\begin{figure}
+%\centering
+%\subfloat[Asia personas duo]
+%{\includegraphics[width=.45\columnwidth]{Lorem}} \quad
+%\subfloat[Pan ma signo]
+%{\label{fig:example-b}%
+%\includegraphics[width=.45\columnwidth]{Ipsum}} \\
+%\subfloat[Methodicamente o uno]
+%{\includegraphics[width=.45\columnwidth]{Dolor}} \quad
+%\subfloat[Titulo debitas]
+%{\includegraphics[width=.45\columnwidth]{Sit}}
+%\caption[Tu duo titulo debitas latente]{Tu duo titulo debitas latente}
+%\label{fig:example}
+%\end{figure}
+
 Please note that the content of this section is just some dummy text. It isn't a real language.
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum gravida mauris.
