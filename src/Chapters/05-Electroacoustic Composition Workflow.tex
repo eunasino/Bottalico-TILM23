@@ -69,7 +69,7 @@ As already said, the electroacoustic sounds are made by a computational composin
 				\end{center}
 			\end{figure}
 		
-		Also in this chase, there are several tools that make several type of sampling, the main are:
+		As the same as the additive synthesis code, for the sampler code there are several tools that make different type of sampling, the main are:
 		
 			\begin{compactitem}
 				\item Simple sampling tool: allows to chose an audio file and to sample it.
@@ -77,6 +77,27 @@ As already said, the electroacoustic sounds are made by a computational composin
 				\item Tuning tool: allows to make a time-stretching by tuning samples in order to make them sound in a specific tune
 				\item Granular Synthesis
 			\end{compactitem}
+		
+		\paragraph{Subtractive Synthesis} is a sound design technique that involves starting with a rich and harmonically complex waveform (like a white or a pink noise), and then shaping the sound by removing or filtering out specific frequencies using filters. By adjusting the cutoff frequency, resonance, and filter types, sound designers can sculpt the timbre and shape of the sound.
+		This code is written to allow the user to compute electroacoustic gestures with this technique, filtering a white noise. It recalls the filtering tools in CSound and a tool that generate white noise. To generate white noise in CSound:
+		
+		\newpage
+		
+		\begin{code}
+			<CsInstruments>
+			instr 1
+			kDuration = p3
+			aNoise    noise kDuration
+			outs aNoise, aNoise
+			endin
+			</CsInstruments>
+			<CsScore>
+			i 1 0 1
+			e
+			</CsScore>
+		\end{code}
+		
+		In the code shown above, an instrument for generating white noise is written by the function aNoise, wich tells to the calculator to generate a white noise for duration "p3". At the endind of the syntax of the Instrument, the score begin. In the first line of the score is written "i 1 0 1" wich means "recall the instrument 1 defined in the orchestra and generate 1 sample"
 		
 	\section{Wwise as an instrument}
 	Now born a spontaneous question. I used the code my teacher wrote in Wolfram as a compositional tool. I used Wwise as a formal editing and management tool.
