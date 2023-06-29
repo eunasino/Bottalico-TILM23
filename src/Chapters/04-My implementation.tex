@@ -2,13 +2,13 @@
 % !TEX root = ../tesi.tex
 
 %************************************************
-\chapter{My implementation}
+\chapter{The implementation}
 \label{chp:fundamentals}
 %************************************************
 
-My main work is on audio implementation: i chose to use an open-source game written in C++ called "Cube".
-Cube is an 2D low-poly retro-style video-game with a low graphic resolution whose source code is available online. The definitions "low-poly" and "retro-style" are common used to describe the style of the graphic, witch is based on different scenes realized with "low-poly" objects, which are graphic components formed by a few geometric figures, which gives them an "angular" appearance. The "retro-style" is a type of graphic style recalls the graphics of the video games of the 80s and 90s, when the pixels were more visible and the resolution of the displays was much lower than the current one.
-I chose to work on the sound design for Cube because the game is very simple, which allowed me to do a job faithful to my compositional intentions. In addition, this game was written for educational purposes: therefore, in addition to making the audio implementation intuitive, the source code is compatible with the most common audio implementation engines for video games. These softwares are called "middleware", and there are several:
+The main work is on audio implementation: the open-source game written in C++ chosen for this implementation is called "Cube".
+Cube is a 2D low-poly retro-style video game with a low graphic resolution whose source code is available online. The definitions "low-poly" and "retro-style" are commonly used to describe the style of the graphic, which is based on different scenes realized with "low-poly" objects, which are graphic components formed by a few geometric figures, which gives them an "angular" appearance. The "retro-style" is a type of graphic style that recalls the graphics of the video games of the 80s and 90s, when the pixels were more visible and the resolution of the displays was much lower than the current one.
+The choice to work on the sound design for Cube is about the simplicity of the game, which allowed me to do a job faithful to my compositional intentions. In addition, this game was written for educational purposes: therefore, in addition to making the audio implementation intuitive, the source code is compatible with the most common audio implementation engines for video games. These softwares are called "middleware", and there are several:
 
 \begin{compactitem}
 	\item Wwise: the middleware i chose to use because is the most common and popular in the game-audio industry. It's developed by Audiokinetic
@@ -34,12 +34,12 @@ I chose to work on the sound design for Cube because the game is very simple, wh
 	--- Steve Horowitz and Scott Looney, "The essential guide to game audio "
 \end{flushright}
 
-Middlewares are softwares that sits between the game engine and the audio engine, providing a set of tools and features to manage audio content and processing. Middleware typically provides a layer of abstraction between the game engine and the audio engine.
-Middleware can perform a variety of tasks, such as audio playback, dynamic mixing, audio processing, sound effects, and music management. It can also handle the integration of external audio tools and libraries, such as plug-ins. For example, Wwise can communicate with Steinberg Nuendo. In Wwise can be also loaded the plug-ins produced by Izotope for audio processing
+Middlewares are software that sits between the game engine and the audio engine, providing a set of tools and features to manage audio content and processing. Middleware typically provides a layer of abstraction between the game engine and the audio engine.
+Middleware can perform a variety of tasks, such as audio playback, dynamic mixing, audio processing, sound effects, and music management. It can also handle the integration of external audio tools and libraries, such as plug-ins. For example, Wwise can communicate with Steinberg Nuendo. In Wwise can be also loaded the plug-ins produced by Izotope for audio processing.
 When a game is being developed, the middleware receives audio data from the game engine, processes it according to the developer's settings, and sends the soundbanks to the audio engine for playback.
 A Soundbank is a collection of audio files, that are packaged together into a single file for efficient loading and playback during the game.
-Soundbanks typically contain metadata that describes how the audio files should be played back in the game, such as volume, panning, and spatial positioning information. Them are usually created using middleware tools and are loaded by the game engine during runtime. By using soundbanks, is possible to enabling a more immersive and dynamic audio experience in the game.
-But why should i use a middleware? Without it, it will be more expensive in terms of time and energies, and the final result will not be the same as it would be with using the tools of a middleware, because the it's a computing enviroment developed to allow the sound designer to set the sound in a certain way, starting from the EQ up to the spatialization. You can do a lot of operations in a smart way that would otherwise require a lot of lines of code
+Soundbanks typically contain metadata that describes how the audio files should be played back in the game, such as volume, panning, and spatial positioning information. They are usually created using middleware tools and are loaded by the game engine during runtime. By using soundbanks, is possible to enable a more immersive and dynamic audio experience in the game.
+But why should I use a middleware? Without it, it will be more expensive in terms of time and energy, and the final result will not be the same as it would be with using the tools of a middleware, because his computing environment was developed to allow the sound designer to set the sound in a certain way, starting from the EQ up to the spatialization. You can do a lot of operations in a smart way that would otherwise require a lot of lines of code.
 
 \section{Wwise}
 For my implementation i chose to use Wwise. But how does it work?
@@ -60,17 +60,10 @@ For my implementation i chose to use Wwise. But how does it work?
 	\item Performance Optimization: Wwise offers various optimization features to ensure efficient and optimized audio processing. This includes streaming audio data, managing memory usage, and controlling resource usage based on gameplay priorities.
 \end{compactitem}
 
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=1\textwidth]{wwise.jpg}
-		\caption{Wwise label}
-	\end{center}
-\end{figure}
-
 To link a sound to a trigger, you need to create an event and put the sounds to play into it. The main section to work on to organize your work is the hierarchy. Here it is not only possible to order the types of events according to their purpose, but they can be grouped using functions that control certain playback parameters. 
 
 	\subsection{Containers}
-	Some of these events are grouped in differents containers. The containers are variations of the calling action of the differents events witch can trigger the sounds of the events in so many different ways. The containers that are mainly used are:
+	Some of these events are grouped in different containers. The containers are variations of the calling action of the different events which can trigger the sounds of the events in so many different ways. The containers that are mainly used are:
 	
 	\begin{compactitem}
 		\item Simple Event: this is the simplest trigger container aviable in Wwise. This rappresent an audio event played once have been called.
@@ -81,10 +74,10 @@ To link a sound to a trigger, you need to create an event and put the sounds to 
 	\end{compactitem}
 
 	\subsection{Dynamic controllers}
-	Is also possible to control randomically some values through the game parameters.
-	Game Parameters in Wwise are numeric variables that can be used to control audio behavior during application interaction. They are dynamic parameters that allow you to adjust different sound aspects in real time, such as volume, panning, transitions and more. Game Parameters offer a flexible way to create responsive and personalized audio interactions, also in randomic way. Is possible give to a game parameters a range of values ​​in which to recall a parameter at each trigger, such as the volume, for example in a range from -12 and -3dB, or the cutoff frequency of a lowpass filter, for example from 200 to 1000 Hz.
-	Some of these events are modulated by RTPC (Real-Time Parameter Control). It's a system that allows you to control the sound parameters in real time while playing the game.
-	RTPC allows to change the values ​​of a parameter, such as the volume, the pitch or the cutoff frequency of a filter, dynamically and based on events or situations that appeares in the game. For example, RTPC could be used to increase the volume of the sound when the player approaches a noise source, or to increase the pitch (so the playback speed) of the heartbeat sound based on the ammount of the healt of the character. In this way, a more immersive and realistic sound experience can be created for the player.
+	Is also possible to control randomly some values through the game parameters.
+	Game Parameters in Wwise are numeric variables that can be used to control audio behavior during application interaction. They are dynamic parameters that allow you to adjust different sound aspects in real-time, such as volume, panning, transitions, and more. Game Parameters offer a flexible way to create responsive and personalized audio interactions, also in a random way. Is possible give to a game parameter a range of values ​​in which to recall a parameter at each trigger, such as the volume, for example in a range from -12 and -3dB, or the cutoff frequency of a lowpass filter, for example from 200 to 1000 Hz.
+	Some of these events are modulated by RTPC (Real-Time Parameter Control). It's a system that allows you to control the sound parameters in real-time while playing the game.
+	RTPC allows changing the values ​​of a parameter, such as the volume, the pitch, or the cutoff frequency of a filter, dynamically and based on events or situations that appears in the game. For example, RTPC could be used to increase the volume of the sound when the player approaches a noise source, or to increase the pitch (so the playback speed) of the heartbeat sound based on the amount of the health of the character. In this way, a more immersive and realistic sound experience can be created for the player.
 	
 	\subsection{Actor-Mixer Hierarchy}
 	To organize the events into the hierarchy of the project, use the Actor-Mixer
@@ -94,21 +87,24 @@ To link a sound to a trigger, you need to create an event and put the sounds to 
 	By utilizing Actor-Mixers within Wwise, it becomes possible to efficiently organize and manage sounds within a project, facilitating control over the mixing and handling of audio levels within the context of an interactive application.
 	
 \section{Soundbanks of Cube}
-The Wwise project of Cube is organized in 4 soundbanks wich contain all the events linked to the game triggers:
+The Wwise project of Cube is organized in 4 soundbanks which contain all the events linked to the game triggers:
 	
 	\begin{compactitem}
 		\item \textbf{Main} This soundbank contains the main sounds of player interaction through the game. It's also divided into 4 different Actor-Mixers:
 			\begin{compactitem}
 				\item Items: sounds linked to the events of the different scenes. The items are similar in each scene, but not at all: for example, the material of the floor changes, and consequently the sound of the player's footsteps or enemies also changes.
-				I tried to denaturalize the footsteps sounds as much as possible, creating quick glitches or short clips sampled from high frequency sounding sources
-				So each in this actor-mixer hierarchy are organized all the events of the scenes, such as the pick up gems sound, or the monster spawn sound.
-				\item Magic: This section contains all the sound linked to the action of the weapon inside the game. The main character and the enemies have their own weapons, and consequently the weapon have their own sounds, wich are different for each weapon. This types of sounds are several, from the simple Staff Swing sound to more complex container, such as the FireGem Magic: this events contain 3 different sounds linked to different triggers: the Blast sound, the explode sound and the impact sound. This sound correspond to the different moments of use of some weapons, which involve actions of explosion of the shot from the gun, the impact of the shot with a surface and the explosion of the shot on the surface.
-				For these sounds I used two types of sounds: hits followed by successions of high-frequency pulses, or sounds generated by additive synthesis, modulated by phasing, chorus or flanging which parameters are changed randomly at each trigger, so they never sound the same.
-				\item Main Character: This actor-mixer hierarchy contain sounds linked to the physical action of the main character, like the voice sounds events, that is the sounds that the player makes when for example he is defeated or is hit by an enemy. This actor-mixer also contain the sound linked to other actions of the player such as jumping, breathing and impacting with some surfaces.
-				For this type of event I decided to use short and nervous sounds, such as short successions of pulses or glitches, since these are sounds linked to triggers that comes with a high frequency, such as footstep triggers.
-				I organized these sounds into random containers and randomized the control of some parameters like the pitch or the cutoff frequency of a LowPass Filter or a HighPass filter. So that, despite being repetitive events, they never sound the same.
-				\item Monsters: These are the sounds linked to the physical actions of the enemies. This sounds are organized in 3 categories: Grunt, Pain and Defeated sounds.
-				For these sounds I decided to use longer gestures, especially for the defeated sounds, because they are triggers that arrive after long intervals of time. I therefore took the opportunity to sample metallic sounds and modulate them with LFOs on different types of filters and AM and FM synthesis.
+				In this implementation, the footstep sounds are denaturalized as much as possible, creating quick glitches or short clips sampled from high frequency sounding sources
+				So each in this actor-mixer hierarchy is organized all the events of the scenes, such as the pick-up gems sound, or the monster spawn sound.
+				
+				\item Magic: This section contains all the sounds linked to the action of the weapon inside the game. The main character and the enemies have their weapons, and consequently, the weapon has their own sounds, which are different for each weapon. These types of sounds are several, from the simple Staff Swing sound to a more complex container, such as the FireGem Magic: these events contain 3 different sounds linked to different triggers: the Blast sound, the exploding sound, and the impact sound. This sound corresponds to the different moments of use of some weapons, which involve actions of an explosion of the shot from the gun, the impact of the shot with a surface, and the explosion of the shot on the surface.
+				For these sounds have been used two types of sounds: hits followed by successions of high-frequency pulses, or sounds generated by additive synthesis, modulated by phasing, chorus, or flanging whose parameters are changed randomly at each trigger, so they never sound the same.
+				
+				\item Main Character: This actor-mixer hierarchy contains sounds linked to the physical action of the main character like the voice sounds events, that is the sounds that the player makes when for example he is defeated or is hit by an enemy. This actor-mixer also contains the sound linked to other actions of the player such as jumping, breathing, and impacting with some surfaces.
+				For this type of event was used short and nervous sounds, such as short successions of pulses or glitches, since these are sounds linked to triggers that come with a high frequency, such as footstep triggers.
+				In this implementation, these sounds are organized into random containers and randomized control of some parameters like the pitch or the cutoff frequency of a LowPass Filter or a high-pass filter. So, despite being repetitive events, they never sound the same.
+				
+				\item Monsters: These are the sounds linked to the physical actions of the enemies. These sounds are organized into 3 categories: Grunt, Pain, and Defeated sounds.
+				For these sounds, I decided to use longer gestures, especially for the defeated sounds, because they are triggers that arrive after long intervals of time. I, therefore, took the opportunity to sample metallic sounds and modulate them with LFOs on different types of filters and AM and FM synthesis.
 			\end{compactitem}
 		
 		\begin{figure}[h]
@@ -131,8 +127,9 @@ The Wwise project of Cube is organized in 4 soundbanks wich contain all the even
 			\end{center}
 		\end{figure}
 		
-		\item \textbf{DCP-the-core} Contains all initialization sounds: game start sounds and various initial sound of the scenes (maps). This soundbank contains the main background track called "Cubetrack", which lasts 04:40 and is played in loop during the game session.
-		\item \textbf{Init} This is the auto-defined soundbank. Thys type of soundbank is automatically generated by the Wwise audio authoring tool based on the project's content and settings.		
+		\item \textbf{DCP-the-core} Contains all initialization sounds: game start sounds and various initial sounds of the scenes (maps). This soundbank contains the main background track called "Cubetrack", which lasts 04:40 and is looped during the game session.
+		
+		\item \textbf{Init} This is the auto-defined soundbank. This type of soundbank is automatically generated by the Wwise audio authoring tool based on the project's content and settings.		
 		With auto-defined soundbanks, Wwise automatically determines which audio assets should be included in each soundbank based on their usage and dependencies within the project.
 	\end{compactitem}
 
@@ -147,7 +144,7 @@ The Wwise project of Cube is organized in 4 soundbanks wich contain all the even
 As mentioned before, each musical gesture through the implementation has his own role in the electroacoustic compositional view.
 
 	\subsection{Aesthetics}
-	Now let's explore how I assigned several musical gestures to specific actions, and how they create an environment when they are added together. There are 3 basic ideas from which I move to make these decisions
+	Now let's explore how the several musical gestures are assigned to specific actions, and how they create an environment when they are added together. There are 3 basic ideas from which these decisions was made:
 		\begin{enumerate}
 			\item Assign short nervous and never repetitive gestures to frequently repeated actions
 			\item Assign long and dilated gestures to actions that are repeated infrequently in the game
@@ -160,14 +157,14 @@ As mentioned before, each musical gesture through the implementation has his own
 		\end{enumerate}
 	
 	\subsection{EQ}
-	I organized the equalization of the material according to the criteria mentioned above, even if it is statistically very difficoult to be able in predicting which sounds will play together and how, mainly for two reasons:
+	The equalization of the material is organized according to the criteria mentioned above, even if it is statistically very difficult to be able in predicting which sounds will play together and how mainly for two reasons:
 	
 	\begin{compactitem}
 		\item as already mentioned, a video game have non-linear events, and consequently unpredictable events
 		\item as already mentioned, many sound parameters are modified randomly with each trigger, consequently the possibilities of creating different timbres increase
 	\end{compactitem}
 	
-	So I tried to equalize the sounds in an optimal way trying to obtain a balanced result in the spectrum, limiting the variations of some parameters such as time stretching and reverb so that they do not change the timbre too much. Consequently I have tried to make coherent choices, trying to maintain a distinction between percussive and non-percussive sounds, between background and melodic sounds.
+	So the sounds are equalized in an optimal way trying to obtain a balanced result in the spectrum, limiting the variations of some parameters such as time stretching and reverb so that they do not change the timbre too much. Consequently, coherent choices was made, trying to maintain a distinction between percussive and non-percussive sounds, between background and melodic sounds.
 
 \begin{comment}
 \begin{code}
