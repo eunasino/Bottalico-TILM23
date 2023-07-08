@@ -6,10 +6,10 @@
 \label{chp:intro}
 %************************************************
 
-Although is complex to predict the actions of a video game, is possible to control the player's emotions as we want, all this is made possible only by music: the primordial language that regulates the emotional genesis of each person.
-There are, obviously, several parameters for making an overall evaluation of the audio implementation for a video game, which concerns both the form and the accuracy of the sounds.
-But the parameter of evaluation changes when changing the type and the style of the game too.
-The composer and sound designer Brian Schmidt, who worked on tons of games such as NARC, talking about the audio implementation for Arcade games, said:
+Although is complex to predict the actions of a video game, is possible to control the player's emotions as we want, all this is made possible only by music: the primordial language that regulates the emotional genesis of each person. \\
+There are, obviously, several parameters for making an overall evaluation of the audio implementation for a video game, which concerns both the form and the accuracy of the sounds. \\
+But the parameter of evaluation changes when changing the type and the style of the game too. \\
+The composer and sound designer \textbf{Brian Schmidt}, who worked on tons of games such as \textbf{NARC}, talking about the audio implementation for Arcade games, said:
 \begin{flushright}
 	\itshape
 	Althought games were short, they'd often have a lot of different modes or mini-game \\
@@ -19,9 +19,10 @@ The composer and sound designer Brian Schmidt, who worked on tons of games such 
 	--- Brian Schmidt
 \end{flushright}
 
-Just as, as far as can be deduced from his words, arcade games have their specific needs for sound design and music composition, in the same way, every different type of video game has its specific needs, let's talk about some of these:
+Just as, as far as can be deduced from his words, arcade games have \textbf{their specific needs} for sound design and music composition. \\
+In the same way, every different type of video game has its specific needs, let's talk about some of these:
 
-	\paragraph{Scrolling} This type is identified in video games that go in one direction, without level or scene changing. Typically, the sound design is easier, because in just one scene the materials and the actions are ever the same. Isn't the same for the music composition: in this type of videogame the music has to change continuously depending on some element, such as the number of enemies, the level of the health of the main character, the fighting moment, and something else. the main sub-genre of this type of games are:
+	\paragraph{Scrolling} This type is identified in video games that goes in one direction, without level or scene changing. Typically, the sound design is easier, because in just one scene the materials and the actions are ever the same. Isn't the same for the music composition: in this type of videogame the music has to change continuously depending on some element, such as the number of enemies, the level of the health of the main character, the fighting moment, and something else. the main sub-genre of this type of games are:
 
 		\begin{compactitem}
 			\item Maze-Chase Games, such as Pac-Man(1982). A game in wich the main character navigate through a maze
@@ -42,8 +43,8 @@ The video-game chosen for this implementation is a \textbf{level based game} in 
 
 \section{Polishing}
 
-A player's actions move a video game in one direction rather than another. Is essential to provide feedback to the player based on the importance of the action performed. Music and sounds are essential to guide the player to make choices within the video game. Polishing is an integral part of the ability to capture and immerse the player in the virtual dimension of the game. The dynamics of sound play a fundamental role in this: a good sound designer must be able, through gain staging, to capture the player's attention on the actions performed
-In the implementation of this work, that's an alternative approach in the parameter of polishing: There isn't a great work of gain staging, but on the character of the sounds: the more a musical gesture is detached from the traditional idea of ​​sound design, the greater the player's involvement will be. It's a game of expectations: therefore I worked more by abstraction than by causality when I needed to bring the player's attention through an action
+A player's actions move a video game in one direction rather than another. Is essential to provide feedback to the player based on the importance of the action performed. Music and sounds are essential to guide the player to make choices within the video game. Polishing is an integral part of the ability to capture and immerse the player in the virtual dimension of the game. The dynamics of sound play a fundamental role in this: a good sound designer must be able, through gain staging, to capture the player's attention on the actions performed \\
+In the implementation of this work, that's an alternative approach in the parameter of polishing: There isn't a great work of gain staging, but on the \textbf{character} of the sounds: the more a musical gesture is detached from the traditional idea of ​​sound design, the greater the player's involvement will be. It's a game of expectations: therefore this work is based on sound gestures made more by abstraction than by causality when is needed to bring the player's attention through an action.
 
 \section{Mix}
 The balance of frequencies in the sound design image is another important item. Its main goals are 2:
@@ -53,19 +54,19 @@ The balance of frequencies in the sound design image is another important item. 
 	\item To prepare the player's ear for twists and turns
 \end{itemize}
 
-Mixing sounds to give roles to each of them in the frequency spectrum best distributes sound energy.
+Mixing sounds to gives \textbf{roles} to each of them in the frequency spectrum best distributes sound energy. \\
 As already mentioned, the durations of the musical gestures are deliberately prolonged and dispersive compared to a traditional approach. This factor certainly doesn't respect the idea of ​​giving a "role" to each sound. However, the material is equalized to maintain at least the "timbral" role of each sound.
 
 \section{Levels of action}
 For a sound designer, is useful to find order: spectrally and dynamically distinguish the sounds belonging to the different levels of action: background, actions, and events.
 
-\paragraph{Background sound} are identified in the soundscape. For example, if the main scene is a forest, the background sounds will be the birds, the wind, or the leaves. Despite in this work there isn't a great distinction in the gesture of the implementation, is respected a simple hierarchy structure, giving the role of "background" sounds to the music carpet: an electroacoustic simple immersive flow of many types of timbres.
+\paragraph{Background sound} are identified in the \textbf{soundscape}. For example, if the main scene is a forest, the background sounds will be the birds, the wind, or the leaves. Despite in this work there isn't a great distinction in the gesture of the implementation, is respected a simple hierarchy structure, giving the role of "background" sounds to the music carpet: an electroacoustic simple immersive flow of many types of timbres.
 
-\paragraph{Actions sound} are related to the direction of the main character: footsteps, pick-up objects, etc. In this implementation, these are the closest sounds to those of a traditional sound design. Not so much for the timbre of the sounds as for their duration, because, since there are short and continuous actions, I couldn't have associated complex musical gestures with them: I need simple and short sounds that are not repetitive, even though they repeat themselves continuously. So I opted for classic electroacoustic glitch sounds, applying random modulations on different parameters (such as volume, pitch, LowPass, and HighPass filter, etc) and inserting them in a random container. In this way, they will always sound different, even though the sounds used for these gestures, such as footsteps, for example, are only 3
+\paragraph{Actions sound} are related to the direction of the main character: footsteps, pick-up objects, etc. In this implementation, these are the closest sounds to those of a traditional sound design. Not so much for the timbre of the sounds as for their duration, because, since there are short and continuous actions, I couldn't have associated complex musical gestures with them: I need simple and short sounds that are not repetitive, even though they \textbf{repeat themselves continuously}. So I opted for classic electroacoustic glitch sounds, applying random modulations on different parameters (such as volume, pitch, LowPass, and HighPass filter, etc) and inserting them in a random container. In this way, they will always sound different, even though the sounds used for these gestures, such as footsteps, for example, are only 3
 \paragraph{Events sounds} are the most important for the involving of the player in the game. For these reason, in this implementation, these sound are the loudest. In the most chase, they are short and loud impulses.
 
 \section{differences between the implementation of sound for game and movies}
-The main difference between implementing audio for games and movies is the linearity: a movie has its timeline in which events are located. A film sound designer or composer knows the order of the events and when each one begins and ends, so he has a timeline to follow for adding sounds, gestures, and music in a specific order. A game sound designer must be able to make short and functional gestures, trying to predict which sounds will overlap. Every sound and every music theme must be able to fit with another one, because after a battle scene for example, anything could happen, distorting the mood of the context, precisely because of the non-linearity of the events.
+The main difference between implementing audio for games and movies is the \textbf{linearity}: a movie has its timeline in which events are located. A film sound designer or composer knows the order of the events and when each one begins and ends, so he has a timeline to follow for adding sounds, gestures, and music in a specific order. A game sound designer must be able to make short and functional gestures, trying to predict which sounds will overlap. Every sound and every music theme must be able to fit with another one, because after a battle scene for example, anything could happen, distorting the mood of the context, precisely because of the non-linearity of the events.
 
 \begin{comment}\begin{code}
 \documentclass[\meta{\dots\unkern}]{scrreprt} % or scrbook or scrartcl

@@ -2,104 +2,22 @@
 % !TEX root = ../tesi.tex
 
 %************************************************
-\chapter{Export}
-\label{chp:fundamentals}
+\chapter{Bibliography and sitography}
+\label{chp:intro}
 %************************************************
 
-Now we are in the final step: the \textbf{export}.
-In order to explain this chapter in the clearest way, in the following section there is a \textbf{work report} of the operation that was made since the idea was born through it's realization
+\paragraph{Bibliography}
+\begin{compactitem}
+	\item Steve Horowitz and Scott Looney - The essential guide to game audio (the theory and pratice of sound for games)
+	\item Audiokinetic Cube Integration
+\end{compactitem}
 
-\section{Work report}
+\paragraph{Sitography}
+\begin{compactitem}
+	\item https://www.audiokinetic.com/en/help/
+	\item https://it.wikipedia.org/wiki/Gamification
+\end{compactitem}
 
-	\begin{enumerate}
-		\item \textbf{the idea} This project inevitably had a different form at the moment of idealization. Exploring my possibilities and working on the technical aspect, my work gradually took form and became part of our dimension. I'm not able to say which of the two versions is better, but the \textbf{realization} of a work is always painted with different colors than its \textbf{idealization}
-		
-		\item \textbf{material preparation} Once the fundamental idea was born, the next step is finding the best material for its realization, so was made choices about:
-			
-			\begin{compactitem}
-				\item languages, softwares and middleware
-				\item open-source game
-				\item compositional character of the implementation
-			\end{compactitem}
-		Once the Wwise project has been initialized, its ready for the next step
-		
-		\item \textbf{composition} Writing codes and generating acousmatic gestures thinking about their role in the audio implementation.
-		Once the gestures mad for the main actions of the game were prepared, I started working on 
-		
-		\item \textbf{Audio implementation} Uploading audio files that were generated during the composition, getting an idea of ​​how to interpolate them and which parameters to modify and how. \\
-		This operation was very important to evaluating the quality of the compositional process. Recomposing some gestures and idealizing the character that the missing gestures should have had to complete the implementation in the best way to reach the goal.
-		
-		\item \textbf{Export} Once the project was completed, comes the most technical and boring part of all: finishing the project and exporting the file.exe
-	\end{enumerate}
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width= 1\textwidth]{aa.jpg}
-		\caption{one of the scenes inside Cube}
-	\end{center}
-\end{figure}
-
-\section{Exporting process}
-
-	\subsection{AllCube.sln}
-	A file.sln, in informatics, is known as a \textbf{solution} file, and it is a container that can contain multiple projects, which are individual units of code. The solution file maintains the organization and dependencies between the projects within the solution. \\
-	A .sln file loads the solution in a workspace where is possible to manage and work on the projects included in that solution. The .sln file holds information about the projects, their configurations, references, and other settings related to the solution.
-	In this case, "AllCube.sln" is the main solution file that includes all the main scripts of the game engine of Cube. By computing this solution, the calculator will generate three configurations of a .exe file: \textbf{debug, profile, and release}. the main characteristic and differences between those types of configurations are:
-	
-\newpage
-	
-	\begin{compactitem}
-		\item \textbf{Debug}
-			\begin{compactitem}
-				\item Intended for debugging and development purposes.
-				\item Usually slower and larger in size compared to other configurations due to the inclusion of debugging symbols.
-				\item Optimization settings may be minimal to facilitate easier debugging.
-			\end{compactitem}
-		\item \textbf{Profile}
-			\begin{compactitem}
-				\item Intended for profiling and performance analysis.
-				\item Similar to the Release configuration in terms of optimization and code generation.
-				\item Usually optimized for performance but may still contain debugging symbols to aid profiling and analysis.
-			\end{compactitem}
-		\item \textbf{Release}
-			\begin{compactitem}
-				\item Intended for deployment and distribution.
-				\item Optimized for performance, size, and efficiency.
-				\item Debugging symbols and additional debugging information are typically excluded to minimize the file size.
-				\item May have aggressive code optimizations enabled to improve execution speed and reduce memory usage.
-				\item Suitable for running the application in production environments.				
-			\end{compactitem}
-	\end{compactitem}
-	
-	For compiling AllCube.sln, is needed the version 10.0.17763.0 of the SDK library, which installer was downloaded with the sources codes.
-	
-\newpage
-	
-	\begin{figure}[h]
-		\begin{center}
-			\includegraphics[width=.5\textwidth]{sssln.jpg}
-			\caption{all the solutions included inside the "AllCube.sln" file, where is highlighted the position of sound.ccp inside the hierarchy.}
-			\label{Ww}
-		\end{center}
-	\end{figure}
-
-	\subsection{Wwise-IDs.h}
-	In \ref{Ww} is shown the code sound.cpp, whose purpose has already been explained in the previous chapter. His \textbf{header} is an external code, called \textbf{Wwise-IDs.h}. \\
-	The extention .h means that the file is a header of another code. In Wwise-IDs.h are wrote all the functions for the initialization of the items inside the  Wwise projects, each with his own identification code. \\
-	As already said, the soundbanks exported from the Wwise project contains all the rules for the audio implementation in the game, the soundbanks are loaded in the exporting process by recalling them Identification code in a function inside Wwise-IDs.h:
-		
-\begin{code}
-	namespace BANKS
-	{
-		static const AkUniqueID INIT = 1355168291U;
-		static const AkUniqueID DCP_THE_CORE = 2981918260U;
-		static const AkUniqueID MAIN = 3161908922U;
-		static const AkUniqueID MUSIC = 3991942870U;
-	}
-		\end{code}
-	
-	So once the soundbanks and all the events of the Wwise projects are loaded in the header of the sound.ccp script, and once the .sln file, wich contains all the solution for generating an .exe file, was computed, the game is done and is ready to be played.
-		
 \begin{comment}
 \begin{code}
 \documentclass[\meta{\dots\unkern}]{scrreprt} % or scrbook or scrartcl
@@ -168,23 +86,23 @@ To write a document according to the \arsclassica{} style, you have to follow so
 
 
 
-\section{Examples}
 
-%\begin{figure}
-%\centering
-%\subfloat[Asia personas duo]
-%{\includegraphics[width=.45\columnwidth]{Lorem}} \quad
-%\subfloat[Pan ma signo]
-%{\label{fig:example-b}%
-%\includegraphics[width=.45\columnwidth]{Ipsum}} \\
-%\subfloat[Methodicamente o uno]
-%{\includegraphics[width=.45\columnwidth]{Dolor}} \quad
-%\subfloat[Titulo debitas]
-%{\includegraphics[width=.45\columnwidth]{Sit}}
-%\caption[Tu duo titulo debitas latente]{Tu duo titulo debitas latente}
-%\label{fig:example}
-%\end{figure}
-
+%\section{Examples}
+%intendo sostituire queste immagini con qualcuna inerente al mio progetto
+\begin{figure}
+\centering
+\subfloat[Asia personas duo]
+{\includegraphics[width=.45\columnwidth]{Lorem}} \quad
+\subfloat[Pan ma signo]
+{\label{fig:example-b}%
+\includegraphics[width=.45\columnwidth]{Ipsum}} \\
+\subfloat[Methodicamente o uno]
+{\includegraphics[width=.45\columnwidth]{Dolor}} \quad
+\subfloat[Titulo debitas]
+{\includegraphics[width=.45\columnwidth]{Sit}}
+\caption[Tu duo titulo debitas latente]{Tu duo titulo debitas latente}
+\label{fig:example}
+\end{figure}
 Please note that the content of this section is just some dummy text. It isn't a real language.
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum gravida mauris.
